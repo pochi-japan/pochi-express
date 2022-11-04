@@ -6,7 +6,7 @@ const recSchema = new Schema({
 	description: String,
 	category: String,
 	recRating: Number,
-	pictures: String,
+	pictures: [String],
 	location: String,
 	url: String,
 	hashtag: [String],
