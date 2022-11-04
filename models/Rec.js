@@ -5,11 +5,11 @@ const recSchema = new Schema({
 	name: String,
 	description: String,
 	category: String,
-	recRating: String,
+	recRating: Number,
 	pictures: String,
 	location: String,
 	url: String,
-	hashtag: String,
+	hashtag: [String],
 });
 
 const Rec = mongoose.model('Rec', recSchema);
