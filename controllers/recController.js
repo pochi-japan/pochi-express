@@ -1,5 +1,5 @@
 const express = require('express');
-const Rec = require('../models/rec');
+const Rec = require('../models/Rec');
 
 // creates a router as a module
 const router = express.Router();
