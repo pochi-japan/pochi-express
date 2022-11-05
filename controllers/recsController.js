@@ -1,5 +1,6 @@
 const express = require('express');
 const Rec = require('../models/Rec');
+const { requireToken } = require('../middleware/auth');
 
 // creates a router as a module
 const router = express.Router();
@@ -23,7 +24,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Create: Add a recommendation
-router.post('/', async (req, res) => {
+router.post('/', requireToken, async (req, res) => {
 	try {
 		res.json(await Rec.create(req.body));
 	} catch (error) {
@@ -32,7 +33,7 @@ router.post('/', async (req, res) => {
 });
 
 // Update: Edit a recommendation by id
-router.patch('/:id', async (req, res) => {
+router.patch('/:id', requireToken, async (req, res) => {
 	try {
 		res.json(
 			await Rec.findByIdAndUpdate({ _id: req.params.id }, req.body, {
@@ -45,7 +46,7 @@ router.patch('/:id', async (req, res) => {
 });
 
 // Delete: Remove a recommendation by id
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', requireToken, async (req, res) => {
 	try {
 		const deleteRec = await Rec.findByIdAndDelete(req.params.id);
 		res.json(deleteRec);

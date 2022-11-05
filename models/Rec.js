@@ -10,7 +10,16 @@ const recSchema = new Schema({
 	location: String,
 	url: String,
 	hashtag: [String],
-});
+	owner: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'User',
+			required: true,
+		},
+	},
+	{
+		timestamps: true,
+	}
+);
 
 const Rec = mongoose.model('Rec', recSchema);
 
