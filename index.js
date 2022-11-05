@@ -5,8 +5,9 @@ const app = express();
 const cors = require('cors');
 
 // Controller for recommendations
-const recController = require('./controllers/recController');
-// const hashtagController = require('./controllers/hashtagController');
+const recsController = require('./controllers/recsController');
+const usersController = require('./controllers/usersController');
+// const hashtagsController = require('./controllers/hashtagController');
 
 // Set the port to listen on
 const PORT = process.env.PORT || 8000;
@@ -19,9 +20,14 @@ app.get('/', (req, res) => {
 	res.redirect('/api');
 });
 
+// Log each request as it comes in for debugging
+const requestLogger = require('./middleware/request_logger');
+app.use(requestLogger);
+
 // This function adding new middleware
-app.use('/api', recController);
-// app.use('/api/hashtag', hashtagController);
+app.use('/api', recsController);
+app.use('/api', usersController);
+// app.use('/api/hashtag', hashtagsController);
 
 // used to assign the setting name to port
 app.set('port', PORT);
