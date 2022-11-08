@@ -3,6 +3,7 @@ const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const { createUserToken } = require('../middleware/auth');
 const router = express.Router();
+const jwt = require('jsonwebtoken');
 
 // SIGN UP
 // POST /api/users/signup
@@ -37,12 +38,12 @@ router.post('/signin', (req, res, next) => {
 
 //HELPER FUNCTION
 function createJWT(user) {
-  return jwt.sign(
-    // data payload
-    { user },
-    process.env.SECRET,
-    { expiresIn: '10h' }
-  );
+	return jwt.sign(
+		// data payload
+		{ user },
+		process.env.SECRET,
+		{ expiresIn: '10h' }
+	);
 }
 
 module.exports = router;
