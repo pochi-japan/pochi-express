@@ -10,8 +10,8 @@ const router = express.Router();
 router.post('/signup', async (req, res, next) => {
 	try {
 		//default number is 10, the number is how many characters is going to be hashed with the password, 6-10 is normal
-		const password = await bcrypt.hash(req.body.password, 10);
-		const user = await User.create({ email: req.body.email, password });
+		const password = await bcrypt.hash(req.body.password, 8);
+		const user = await User.create({ email: req.body.email, password, name: req.body.name });
 		return res.status(201).json(user);
 	} catch (err) {
 		return next(err);
