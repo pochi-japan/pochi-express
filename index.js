@@ -26,7 +26,7 @@ app.use(requestLogger);
 
 // This function adding new middleware
 app.use('/api', recsController);
-app.use('/api', usersController);
+app.use('/api/users', usersController);
 // app.use('/api/hashtag', hashtagsController);
 
 // used to assign the setting name to port
