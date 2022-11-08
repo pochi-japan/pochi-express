@@ -4,9 +4,8 @@ const bcrypt = require('bcrypt');
 const { createUserToken } = require('../middleware/auth');
 const router = express.Router();
 
-
 // SIGN UP
-// POST /api/users/signup
+// POST /api/signup
 router.post('/signup', async (req, res, next) => {
 	try {
 		//default number is 10, the number is how many characters is going to be hashed with the password, 6-10 is normal
@@ -16,8 +15,7 @@ router.post('/signup', async (req, res, next) => {
 			password,
 			name: req.body.name,
 		});
-		const token = createJWT(user);
-		return res.status(201).json(token);
+		return res.status(201).json(user);
 	} catch (err) {
 		return next(err);
 	}
@@ -35,15 +33,5 @@ router.post('/signin', (req, res, next) => {
 		.then((token) => res.json({ token }))
 		.catch(next);
 });
-
-//HELPER FUNCTION
-function createJWT(user) {
-	return jwt.sign(
-		// data payload
-		{ user },
-		process.env.SECRET,
-		{ expiresIn: '10h' }
-	);
-}
 
 module.exports = router;
