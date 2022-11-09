@@ -10,7 +10,8 @@ const usersController = require('./controllers/usersController');
 // const hashtagsController = require('./controllers/hashtagController');
 
 // Set the port to listen on
-const PORT = process.env.PORT || 8000;
+// const PORT = process.env.PORT || 8000;
+const PORT = 8000;
 
 // middleware function that parses incoming JSON requests and puts the parsed data in req.body
 app.use(express.json());

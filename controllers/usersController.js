@@ -7,35 +7,35 @@ const ensureLoggedIn = require('../config/ensureLoggedIn');
 
 // SIGN UP
 // POST /api/signup
-// router.post('/signup', async (req, res, next) => {
-// 	try {
-// 		//default number is 10, the number is how many characters is going to be hashed with the password, 6-10 is normal
-// 		const password = await bcrypt.hash(req.body.password, 8);
-// 		const user = await User.create({
-// 			email: req.body.email,
-// 			password,
-// 			name: req.body.name,
-// 		});
-// 		return res.status(201).json(user);
-// 	} catch (err) {
-// 		return next(err);
-// 	}
-// });
-
-//SIGN UP
 router.post('/signup', async (req, res, next) => {
 	try {
-		const user = await User.create(req.body);
-		// token will be a string
-		const token = createJWT(user);
-		// send back the token as a string
-		// which we need to account for
-		// in the client
-		return res.json(token);
+		//default number is 10, the number is how many characters is going to be hashed with the password, 6-10 is normal
+		const password = await bcrypt.hash(req.body.password, 8);
+		const user = await User.create({
+			email: req.body.email,
+			password,
+			name: req.body.name,
+		});
+		return res.status(201).json(user);
 	} catch (err) {
 		return next(err);
 	}
 });
+
+//SIGN UP
+// router.post('/signup', async (req, res, next) => {
+// 	try {
+// 		const user = await User.create(req.body);
+// 		// token will be a string
+// 		const token = createUserToken(user);
+// 		// send back the token as a string
+// 		// which we need to account for
+// 		// in the client
+// 		return res.json(token);
+// 	} catch (err) {
+// 		return next(err);
+// 	}
+// });
 
 // SIGN IN
 // POST /api/signin
@@ -61,13 +61,13 @@ router.get('/check-token', ensureLoggedIn, checkToken);
 
 /*-- Helper Functions --*/
 
-function createJWT(user) {
-	return jwt.sign(
-		// data payload
-		{ user },
-		process.env.SECRET,
-		{ expiresIn: '24h' }
-	);
-}
+// function createJWT(user) {
+// 	return jwt.sign(
+// 		// data payload
+// 		{ user },
+// 		process.env.SECRET,
+// 		{ expiresIn: '24h' }
+// 	);
+// }
 
 module.exports = router;
