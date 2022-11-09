@@ -56,18 +56,8 @@ function checkToken(req, res) {
 	res.json(req.exp);
 }
 
+
 // GET /api/users/check-token
 router.get('/check-token', ensureLoggedIn, checkToken);
-
-/*-- Helper Functions --*/
-
-// function createJWT(user) {
-// 	return jwt.sign(
-// 		// data payload
-// 		{ user },
-// 		process.env.SECRET,
-// 		{ expiresIn: '24h' }
-// 	);
-// }
 
 module.exports = router;
