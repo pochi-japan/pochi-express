@@ -38,7 +38,7 @@ router.post('/signup', async (req, res, next) => {
 // });
 
 // SIGN IN
-// POST /api/users/signin
+// POST /api/signin
 router.post('/signin', (req, res, next) => {
 	User.findOne({ email: req.body.email })
 		// Pass the user and the request to createUserToken
@@ -56,8 +56,18 @@ function checkToken(req, res) {
 	res.json(req.exp);
 }
 
-
 // GET /api/users/check-token
 router.get('/check-token', ensureLoggedIn, checkToken);
+
+/*-- Helper Functions --*/
+
+// function createJWT(user) {
+// 	return jwt.sign(
+// 		// data payload
+// 		{ user },
+// 		process.env.SECRET,
+// 		{ expiresIn: '24h' }
+// 	);
+// }
 
 module.exports = router;
