@@ -16,7 +16,7 @@ const recSchema = new Schema(
 		// 	ref: 'User',
 		// 	required: true,
 		// },
-		owner: String,
+		owner: { type: String, required: true },
 	},
 	{
 		timestamps: true,
