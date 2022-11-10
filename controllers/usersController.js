@@ -47,7 +47,7 @@ router.post('/signin', (req, res, next) => {
 		// createUserToken will either throw an error that
 		// will be caught by our error handler or send back
 		// a token that we'll in turn send to the client.
-		.then((token) => res.json(token))
+		.then((token) => res.json({ token }))
 		.catch(next);
 });
 
