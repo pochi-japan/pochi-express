@@ -22,21 +22,6 @@ router.post('/signup', async (req, res, next) => {
 	}
 });
 
-//SIGN UP
-// router.post('/signup', async (req, res, next) => {
-// 	try {
-// 		const user = await User.create(req.body);
-// 		// token will be a string
-// 		const token = createUserToken(user);
-// 		// send back the token as a string
-// 		// which we need to account for
-// 		// in the client
-// 		return res.json(token);
-// 	} catch (err) {
-// 		return next(err);
-// 	}
-// });
-
 // SIGN IN
 // POST /api/signin
 router.post('/signin', (req, res, next) => {
@@ -50,24 +35,5 @@ router.post('/signin', (req, res, next) => {
 		.then((token) => res.json({ token }))
 		.catch(next);
 });
-
-function checkToken(req, res) {
-	console.log('req.user', req.user);
-	res.json(req.exp);
-}
-
-// GET /api/users/check-token
-router.get('/check-token', ensureLoggedIn, checkToken);
-
-/*-- Helper Functions --*/
-
-// function createJWT(user) {
-// 	return jwt.sign(
-// 		// data payload
-// 		{ user },
-// 		process.env.SECRET,
-// 		{ expiresIn: '24h' }
-// 	);
-// }
 
 module.exports = router;

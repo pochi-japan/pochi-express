@@ -1,8 +1,6 @@
 const express = require('express');
 const Rec = require('../models/Rec');
 const { requireToken } = require('../middleware/auth');
-
-// creates a router as a module
 const router = express.Router();
 
 // define the home page route
