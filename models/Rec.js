@@ -11,7 +11,7 @@ const recSchema = new Schema(
 		picture2: String,
 		picture3: String,
 		picture4: String,
-		location: String,
+		address: String,
 		url: String,
 		hashtag: [String],
 		// owner: {
