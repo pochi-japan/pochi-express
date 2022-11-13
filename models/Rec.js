@@ -13,7 +13,7 @@ const recSchema = new Schema(
 		picture4: String,
 		address: String,
 		url: String,
-		hashtag: [String],
+		hashtags: [String],
 		// owner: {
 		// 	type: mongoose.Schema.Types.ObjectId,
 		// 	ref: 'User',
