@@ -36,12 +36,30 @@ router.post('/signin', (req, res, next) => {
 		.catch(next);
 });
 
-function checkToken(req, res) {
-	console.log('req.user', req.user);
-	res.json(req.exp);
-}
+// define the home page route
+router.get('/', async (req, res) => {
+	try {
+		res.json(await User.find({}));
+	} catch (error) {
+		res.status(200).json(error);
+	}
+});
+
+// Show: Get recommendation by id
+router.get('/:id', async (req, res) => {
+	try {
+		res.json(await User.findById({ _id: req.params.id }));
+	} catch (error) {
+		res.status(200).json(error);
+	}
+});
+
+// function checkToken(req, res) {
+// 	console.log('req.user', req.user);
+// 	res.json(req.exp);
+// }
 
 // GET /api/users/check-token
-router.get('/check-token', ensureLoggedIn, checkToken);
+// router.get('/check-token', ensureLoggedIn, checkToken);
 
 module.exports = router;
