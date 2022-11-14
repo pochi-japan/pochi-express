@@ -36,4 +36,12 @@ router.post('/signin', (req, res, next) => {
 		.catch(next);
 });
 
+function checkToken(req, res) {
+	console.log('req.user', req.user);
+	res.json(req.exp);
+}
+
+// GET /api/users/check-token
+router.get('/check-token', ensureLoggedIn, checkToken);
+
 module.exports = router;

@@ -14,7 +14,7 @@ const recSchema = new Schema(
 		address: String,
 		url: String,
 		hashtags: [String],
-		// owner: {
+		// user: {
 		// 	type: mongoose.Schema.Types.ObjectId,
 		// 	ref: 'User',
 		// 	required: true,

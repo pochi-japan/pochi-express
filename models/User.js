@@ -1,4 +1,4 @@
-const mongoose = require('../db/connection');
+const mongoose = require('../db/connection').default;
 
 // cost factor
 // const SALT_ROUNDS = 6;
