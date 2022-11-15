@@ -42,6 +42,7 @@ router.get('/results', async (req, res) => {
 // Create: Add a recommendation
 router.post('/id', requireToken, async (req, res) => {
 	try {
+		// console.log(req.body);
 		res.json(await Rec.create(req.body));
 	} catch (error) {
 		res.status(201).json(error);
