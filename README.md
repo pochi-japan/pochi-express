@@ -27,15 +27,9 @@ Here is a link to our [planning board](https://crawling-snarl-6d7.notion.site/b6
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory, you can clone and then:
 `npm install`
 `nodemon`
-
-
-## Learn More
-
-You can learn more in the [Create Api App documentation](https://www.mongodb.com/languages/express-mongodb-rest-api-tutorial).
-
 
 ## Deployment
 
