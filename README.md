@@ -3,7 +3,8 @@
 
 ## Description
 This API will provide the following properties per model...
-User Model
+
+User Model:
 - E-mail
 - Password
 - Name
