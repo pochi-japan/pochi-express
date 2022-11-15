@@ -3,19 +3,20 @@
 
 ## Description
 This API will provide the following properties per model...
-
+User Model
+- E-mail
+- Password
+- Name
+    
 Recommendations:
-- name
-- descriptions
-- category (place or thing)
-- location (address)
-- rating
-- pictures
-- outside links
-- hashtags (many hashtags to on recommendation)
-
-Hashtags:
-- name (many hashtags to on recommendation)
+- Name
+- Description
+- Category (place or thing)
+- Address/Location
+- Rating
+- Pictures (up to 4)
+- Outside links
+- Hashtags
 
 This project was created with [MongoDB](https://www.mongodb.com/), [Mongoose](https://mongoosejs.com/), [Express](https://expressjs.com/).
 
@@ -27,7 +28,7 @@ Here is a link to our [planning board](https://crawling-snarl-6d7.notion.site/b6
 
 In the project directory, you can run:
 `npm install`
-`npm start`
+`nodemon`
 
 
 ## Learn More
@@ -37,6 +38,6 @@ You can learn more in the [Create Api App documentation](https://www.mongodb.com
 
 ## Deployment
 
-[Deployed Heroku Link](put link here!!!!!)
+[Deployed Heroku Link](https://pochi-japan.herokuapp.com/api)
 
-[Project's github repository](put link here!!!!)
+[Backend Github Repository](https://github.com/pochi-japan/pochi-express/)
