@@ -36,7 +36,7 @@ router.post('/signin', (req, res, next) => {
 		.catch(next);
 });
 
-// define the home page route
+// Get all users (only used for testing purposes)
 router.get('/', async (req, res) => {
 	try {
 		res.json(await User.find({}));
@@ -45,7 +45,7 @@ router.get('/', async (req, res) => {
 	}
 });
 
-// Show: Get recommendation by id
+// Show: Get recommendation by id (only used for testing purposes)
 router.get('/:id', async (req, res) => {
 	try {
 		res.json(await User.findById({ _id: req.params.id }));
@@ -53,13 +53,5 @@ router.get('/:id', async (req, res) => {
 		res.status(200).json(error);
 	}
 });
-
-// function checkToken(req, res) {
-// 	console.log('req.user', req.user);
-// 	res.json(req.exp);
-// }
-
-// GET /api/users/check-token
-// router.get('/check-token', ensureLoggedIn, checkToken);
 
 module.exports = router;

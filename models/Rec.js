@@ -14,11 +14,14 @@ const recSchema = new Schema(
 		address: String,
 		url: String,
 		hashtags: String,
+		// Try to implement this in the future
 		// user: {
 		// 	type: mongoose.Schema.Types.ObjectId,
 		// 	ref: 'User',
 		// 	required: true,
 		// },
+
+		// This will be the user's email
 		owner: { type: String, required: true },
 	},
 	{

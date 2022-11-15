@@ -3,7 +3,7 @@ const Rec = require('../models/Rec');
 const { requireToken } = require('../middleware/auth');
 const router = express.Router();
 
-// define the home page route
+// Get all recommendations
 router.get('/', async (req, res) => {
 	try {
 		res.json(await Rec.find({}));
@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
 	}
 });
 
-// Show: Get recommendation by id
+// Get recommendation by id
 router.get('/id/:id', async (req, res) => {
 	try {
 		res.json(await Rec.findById({ _id: req.params.id }));
@@ -21,7 +21,7 @@ router.get('/id/:id', async (req, res) => {
 	}
 });
 
-// Show: Get search query params results
+// Get search query params results
 // The URL would look like /?name=searchTerm&description=searchTerm
 router.get('/results', async (req, res) => {
 	try {

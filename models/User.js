@@ -1,8 +1,5 @@
 const mongoose = require('../db/connection').default;
 
-// cost factor
-// const SALT_ROUNDS = 6;
-
 const userSchema = new mongoose.Schema(
 	{
 		email: {
